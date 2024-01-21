@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: Authentification-service
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/authenticationDb
+    username: postgres
+    password: 123456
+    driverClassName: org.postgresql.Driver
+
+  # JPA properties
+  jpa:
+    hibernate:
+      ddl-auto: update # When you launch the application for the first time - switch "none" at "create"
+    show-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+    generate-ddl: true
+  security:
+    user:
+      name: admin
+      password: password
+
+server:
+  port: 8091
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
